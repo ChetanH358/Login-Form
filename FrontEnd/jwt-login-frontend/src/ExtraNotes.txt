@@ -1,0 +1,7 @@
+CORS -> 
+cors Error -> 
+This is the most common error when you run a backend seperated front end
+Cross Origin Resources sharing means backend does not trust the request coming from
+the front end , by default backend accepts request coming from itself
+
+solution : configure backend to accept request from front end 

@@ -1,0 +1,45 @@
+    // all documentations are available in react.org
+
+    Installation => 
+    install node.js and npm packages and in terminal type 
+
+
+// function based component partially completed 
+
+ import React from "react";
+ import { useState } from "react";
+ import { useEffect } from "react";
+ import { request } from "./axios_helper";
+
+ function AuthContent() {
+   const [data, setData] = useState([]);
+
+   useEffect(() => {
+     request("GET", "/messages", []).then((response) => {
+       console.log(response.data);
+       setData(response.data);
+     });
+   }, []);
+
+   return (
+     <div className="row justify-content-md-center">
+       <div className="col-4">
+         <div className="card" style={{ width: "18rem" }}>
+           <div className="card-body">
+             <h4>Backend Response</h4>
+             <p className="card-text">Content : </p>
+             {data.map((line, index) => (
+               <p key={index}>{line}</p>
+             ))}
+           </div>
+         </div>
+       </div>
+     </div>
+   );
+ }
+
+ export default AuthContent;
+
+
+ Once the user logs in JWT is returned to frontend , now store jwt and use it for the following request form the front end
+ update the axois helper to store and read the jwt from the localstorage and when available use it in all request

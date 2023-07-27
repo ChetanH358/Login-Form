@@ -1,0 +1,18 @@
+
+In SecurityConfig class ->
+* within securityFilterchain start by adding exception in this way we able to return custom message when
+security issue occures
+
+* adding jwt filter before any authentication of spring security
+* disabling csrf
+* telling spring that we want stateless in this way we can get seesion which don't store cookies
+* specifying the endpoints for which authentication is not recquired and for the rest it should be authenticated
+
+In UserException Handler class ->
+
+
+/-------------------------------------------------------------------------------------------------/
+
+* Adding Authentication to the securityContext allows me to add @AuthenticationPrincipal annotation as input parameter
+at any controller this annotation will inject the authenticated user . so filter will give to the controller an object
+of the authenticated user
